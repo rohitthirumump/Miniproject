@@ -51,31 +51,66 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
-			.bg-text {
-				background-color: rgb(0,0,0); /* Fallback color */
-				background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+			.Images{
+				background-color: rgb(0,0,0);
+				background-color: rgba(0,0,0, 0.4); 
 				color: white;
 				font-weight: bold;
 				border: 3px solid #f1f1f1;
 				position: absolute;
-				top: 50%;
+				top: 65%;
 				left: 50%;
 				transform: translate(-50%, -50%);
 				z-index: 2;
 				width: 80%;
 				padding: 20px;
-				text-align: center;
+			}
+			.slideshow-container {
+				max-width: 1000px;
+				
+				margin: auto;
 			}
 			.column {
 				float: left;
 				width: 33.33%;
 				padding: 5px;
 			}
-			.row::after {
+			.file::after {
 				content: "";
 				clear: both;
 				display: table;
 			}
+			.dot {
+				height: 15px;
+				width: 15px;
+				margin: 0 2px;
+				background-color: #bbb;
+				border-radius: 50%;
+				display: inline-block;
+				transition: background-color 0.6s ease;
+			}
+			.fade {
+			  -webkit-animation-name: fade;
+			  -webkit-animation-duration: 1.5s;
+			  animation-name: fade;
+			  animation-duration: 1.5s;
+			}
+
+			@-webkit-keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+
+			@keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+			  .text {font-size: 11px}
+			}
+			
 		</style>
 	</head>
 	<body>
@@ -113,20 +148,107 @@
 			</nav>
 		</header>
 		<div class="bg-image"></div>
-		<div class="bg-text">
-			<div class="row">
-				<div class="column">
-					<img src="Images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg" alt="Snow" style="width:100%">
+		<div class="slideshow-container">
+			<div class="Images">
+				<div class="row fade">
+					<div class = "file">
+						<div class="column">
+							<img src="Images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/ashley-byrd-yzkTCP4uc9E-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/id-interiors-VWt1BBQwwtU-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
+					<div class = "file">
+					<div class="column">
+							<img src="Images/jon-nathon-stebbe-paydk0JcIOQ-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/kara-eads-L7EwHkq1B2s-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/sidekix-media-WgkA3CSFrjc-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
 				</div>
-				<div class="column">
-					<img src="Images/ashley-byrd-yzkTCP4uc9E-unsplash.jpg" alt="Snow" style="width:100%">
+				<div class="row fade">
+					<div class = "file">
+						<div class="column">
+							<img src="Images/sidekix-media-lrk0l9w8rI0-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/sidekix-media-rM4T33mD9g4-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/sidekix-media-SWOmTM6WivM-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
+					<div class = "file">
+						<div class="column">
+							<img src="Images/id-interiors-3B8t4vnkXt0-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/francesca-tosolini-tDVvS8eOMig-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/douglas-sheppard-9rYfG8sWRVo-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
 				</div>
-				<div class="column">
-					<img src="Images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg" alt="Snow" style="width:100%">
+					<div class="row fade">
+					<div class = "file">
+						<div class="column">
+							<img src="Images/naomi-hebert-MP0bgaS_d1c-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/grovemade-vfIx29EsLHA-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/neonbrand-kdwahpWYfQo-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
+					<div class = "file">
+						<div class="column">
+							<img src="Images/joshua-ness-Vo52cKzOxMY-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/sidekix-media-hZE6VQVbMco-unsplash.jpg"  style="width:100%">
+						</div>
+						<div class="column">
+							<img src="Images/jens-behrmann-MvTkaGZuXto-unsplash.jpg"  style="width:100%">
+						</div>
+					</div>
 				</div>
-				<div class="column">
-					<img src="Images/sidekix-media-WgkA3CSFrjc-unsplash.jpg" alt="Snow" style="width:100%">
-				</div>
+			</div>
 		</div>
+		<div style = "text-align: center">
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+		</div>
+		<script>
+			var slideIndex = 0;
+			showSlides();
+
+			function showSlides() {
+				var i;
+				var slides = document.getElementsByClassName("row");
+				var dots = document.getElementsByClassName("dot");
+				for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";  
+				}
+				slideIndex++;
+				if (slideIndex > slides.length) {slideIndex = 1}    
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+				slides[slideIndex-1].style.display = "block";  
+				dots[slideIndex-1].className += " active";
+				setTimeout(showSlides, 3000); 
+				}
+		</script>
 	</body>
 </html>
