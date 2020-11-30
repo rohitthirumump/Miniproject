@@ -1,0 +1,12 @@
+.box{
+    width: 450px;
+    padding: 10px;
+    
+}
+body{
+    background-image: url('../Images/pexels-brayden-law-1829191.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
