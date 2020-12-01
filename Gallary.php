@@ -31,10 +31,10 @@
 					<div class="navbar-header">
 						<div class="navbar-brand">
 						<ul>
-							<li><a href="Home.html"></li>
+							<li><a href="index.html"></li>
 							<li><h3>Home</h3></li>
 							<li></a></li>
-							<li><a href = "Gallary.html"></li>
+							<li><a href = "Gallary.php"></li>
 							<li><h3>Gallary</h3></li>
 							<li></a></li>
 							<li><a href = "Contact.html"></li>
@@ -92,7 +92,7 @@
 										<img src="<?php echo $project['img'];?>" alt="" class="card-img-top">
 										
                                         <div class="card-body text-center">
-											<h1 class="card-title">House id: 
+											<h3 class="card-title">House id: 
 												<?php echo $project['House_id'];
 
 													if ($project['status'] == 1){
@@ -101,7 +101,7 @@
 														echo "(Unavailable)";
 													}
 												?> 
-											</h1>
+											</h3>
 											<p class="card-text">
 												Locality: <?php echo $project['Locality'];?>
 												<br>
