@@ -1,0 +1,42 @@
+body{
+    background-image: url('../Images/pexels-brayden-law-1829191.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body, html {
+    height: 100%;
+    
+}
+*{
+    box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li {
+    float: left;
+    display: block;
+    padding: 8px;
+}
+#header-nav {
+    background-color: #000000;
+    border-radius: 0;
+    border: 0;
+    color: #a239ca;
+    padding: 0px;
+}
+#header-nav a {
+    color: #a239ca;
+}
+#header-nav a:hover {
+    color: #a239ca;
+}
