@@ -7,16 +7,8 @@
 </head>
 <body>
 <?php
-        // config
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "house_renting";
-        $conn = mysqli_connect($servername, $username, $password,$dbname);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        } 
-
+    include("config.php");
+       
         $hid = $_POST["hid"];
         $locality = $_POST["locality"];
         $type = $_POST["type"];
@@ -24,15 +16,31 @@
         $oid = $_POST["oid"];
         $img = $_POST["img"];
 
-        $sql = "INSERT INTO house_details values ('$hid','$locality', '$type', '$status', '$oid', '$img')";
+        $password = $_POST["password"];
 
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+        $oid_sql = "select * from owner where Password = '$password' and owner_id = '$oid' ";
+        $result = mysqli_query($conn, $oid_sql);
+
+        if(mysqli_num_rows($result) > 0) { 
+            $sql = "INSERT INTO house_details values ('$hid','$locality', '$type', '$status', '$oid', '$img')";
+
+            if (mysqli_query($conn, $sql)) {
+                echo "New record created successfully";
+            }
+            else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+
+         } else { ?>
+            <script> alert("You are not a registered owner"); 
+                setTimeout(function () {
+                window.location.href= 'http://localhost/Miniproject/signup.html'; // the redirect goes here
+                },3000);
+            </script>     
+        <?php 
+            // header("Location: http://localhost/Miniproject/signup.html");
         }
-        else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-         mysqli_close($conn);   
+         
     ?>
 
 </body>

@@ -7,15 +7,7 @@
 </head>
 <body>
     <?php
-        // config
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "house_renting";
-        $conn = mysqli_connect($servername, $username, $password,$dbname);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        } 
+            include("config.php"); 
 
         $id = $_POST["pid"];
         $fname = $_POST["fname"];
@@ -30,20 +22,31 @@
 
         // echo "$id $fname $lname $email $age $contact $pswrd $gender $ur";
         if($ur == "Owner"){
-            $sql = "INSERT INTO owner values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
+            $s = "select * from owner where owner_id='$id'";
+            $result = mysqli_query($conn,$s);
+            $n = mysqli_num_rows($result);
+            if($n == 1){
+                echo " User ID already taken ";
+            } else {
+                $sql = "INSERT INTO owner values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
+            }
         } else if ($ur == "Customer"){
+            $s = "select * from customer where cust_id='$id'";
+            $result = mysqli_query($conn,$s);
+            $n = mysqli_num_rows($result);
+            if($n == 1){
+                echo " User ID already taken ";
+            } else {
             $sql = "INSERT INTO customer  values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
-        } else{
-            echo "Data not read";
         } 
 
         if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+            echo "Registration successfully";
         }
         else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-         mysqli_close($conn);   
+         
     ?>
 </body>
 </html>

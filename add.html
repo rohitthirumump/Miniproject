@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="info">
-                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-                    <a href="login.html"><span style="margin-right: 2vw;">Sign In</span></a>
+                    <!-- <i class="fas fa-sign-in-alt" aria-hidden="true"></i> -->
+                    <!-- <a href="login.html"><span style="margin-right: 2vw;">Sign In</span></a> -->
                     <i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
-                    <a href="signup.html"><span>Sign Up</span></a>
+                    <a href="signup.html"><span>Register</span></a>
                 </div>
                 <!-- <div class="search">
                     <input type="text" placeholder="Search Device">
@@ -52,6 +52,14 @@
             <div class="">
                 <h1 class="text-center mb-4">Add a New House</h1> 
                 <form action="newhouse.php" method="POST">
+                    <div class="form-group">
+                        <label for="oid">Owner ID</label>
+                        <input type="number" class="form-control" id="oid" placeholder="3 digit owner id" name="oid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Owner Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="" name="password" required>
+                    </div>
 
                         <div class="form-group">
                             <label for="hid">House ID</label>
@@ -80,10 +88,6 @@
                                 <option value="1">Available</option>
                                 <option value="0">Unavailable</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="oid">Owner ID</label>
-                            <input type="number" class="form-control" id="oid" placeholder="3 digit owner id" name="oid" required>
                         </div>
                         <div class="form-group">
                             <label for="img">Image url</label>

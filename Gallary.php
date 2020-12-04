@@ -14,24 +14,14 @@
 		<link rel="stylesheet" href="css and js/gallery.css">
 	</head>
 	<body>
-		<?php
-		// config
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "house_renting";
-			$conn = mysqli_connect($servername, $username, $password,$dbname);
-			if (!$conn) {
-				die("Connection failed: " . mysqli_connect_error());
-			} 
-		?>
+		<?php include ("config.php"); ?>
 		<header>
 			<nav id="header-nav" class="navbar navbar-default">
 				<div class="container">
 					<div class="navbar-header">
 						<div class="navbar-brand">
 						<ul>
-							<li><a href="index.html"></li>
+							<li><a href="home.html"></li>
 							<li><h3>Home</h3></li>
 							<li></a></li>
 							<li><a href = "Gallary.php"></li>
@@ -43,10 +33,10 @@
 						</div>
 					</div>
 					<div class="info">
-						<i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-						<a href="login.html"><span style="margin-right: 2vw;">Sign In</span></a>
-						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
-						<a href="signup.html"><span>Sign Up</span></a>
+						<!-- <i class="fas fa-sign-in-alt" aria-hidden="true"></i> -->
+						<!-- <a href="login.html"><span style="margin-right: 2vw;">Sign In</span></a> -->
+						<!-- <i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i> -->
+						<a href="logout.php"><span>Logout</span></a>
 					</div>
 					<!-- <div class="search">
 						<input type="text" placeholder="Search Device">
@@ -62,25 +52,17 @@
 
 		<div class="container mt-4">
 			<div class="row">
-				<div class="col-8">
+				<div class="col-9">
 					<h1 class="text-white">Select from the varieties Available...</h1>
 				</div>
 
-				<!-- if owner logged in then display this button -->
-				
-					<div class="col-2">
-					<button class="btn btn-primary btn-sm login">
+				<div class="col-3">
+					<!-- <button class="btn btn-primary btn-sm login">
 						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
 						<a href="add.html" class="text-white">Add a new house</a>
-					</button>
+					</button> -->
 				</div>
-				<div class="col-2">
-					<button class="btn btn-primary btn-sm login">
-						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
-						<a href="#" class="text-white">View your houses</a>
-					</button>
-				</div>
-				<!--  -->
+				
 			</div>
 
 			<!-- All houses from db -->
@@ -88,14 +70,14 @@
 				$projects = array();
 				// fetch data from the database
 				$records = '';
-				$records = mysqli_query($conn,"select * from house_details") or die("Query fail: " . mysqli_error());
-				$contacts = mysqli_query($conn,"select Contact from owner") or die ("Query fail: ".mysqli_error());
+				$records = mysqli_query($conn,"select h.*,o.Contact from house_details h, owner o where h.Owner_id=o.owner_id") or die("Query fail: " . mysqli_error());
+				// $contacts = mysqli_query($conn,"select Contact from owner") or die ("Query fail: ".mysqli_error());
 			?>
 			<div class="row ">
 				<?php 
 					while (  $project =  mysqli_fetch_assoc($records)    )
 					{
-						$contact = mysqli_fetch_assoc($contacts)
+						// $contact = mysqli_fetch_assoc($contacts)
 				?>
                         <div class="col-lg-4 col-md-6">
                                 <div class="card" >
@@ -117,7 +99,8 @@
 												<br>
 												Type: <?php echo $project['Type'];?>
 												<br>
-												Contact Owner: <?php echo $contact['Contact'];?>
+
+												Contact Owner[ID: <?php echo $project['Owner_id'] ?>]: <?php echo $project['Contact'];?>
 												<br>
 												<button class="btn btn-danger mt-2">
 													<?php if($project['status'] == 1) { ?>
