@@ -13,7 +13,7 @@
         $locality = $_POST["locality"];
         $type = $_POST["type"];
         $status = $_POST["status"];
-        $oid = $_POST["oid"];
+        $oid = $_SESSION['id'];
         $img = $_POST["img"];
 
         $password = $_POST["password"];

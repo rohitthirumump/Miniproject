@@ -1,3 +1,13 @@
+<?php 
+    include("config.php");
+
+    $id = $_POST['id'];
+    $sql = "select * from house_details where House_id = $id";
+    $record = mysqli_query($conn,$sql) or die("Query fail: " . mysqli_error($conn));
+    $result = mysqli_fetch_assoc($record);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,29 +60,19 @@
     <div class="container ">
         <div class="box border bg-light mx-auto my-5 rounded">
             <div class="">
-                <h1 class="text-center mb-4">Add a New House</h1> 
-                <form action="newhouse.php" method="POST">
-                    <!-- <div class="form-group">
-                        <label for="oid">Owner ID</label>
-                        <input type="number" class="form-control" id="oid" placeholder="3 digit owner id" name="oid" required>
-                    </div> -->
-                    <!-- <div class="form-group">
-                        <label for="password">Owner Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="" name="password" required>
-                    </div> -->
-
+                <h1 class="text-center mb-4">Update House <?php echo $result['House_id'] ?></h1> 
+                <form action="updatequery.php" method="POST">
                         <div class="form-group">
-                            <label for="hid">House ID</label>
-                            <input type="number" class="form-control" id="hid" placeholder="3 digit house id" name="hid" required>
+                        <input type="number" class="form-control"  name="id" placeholder="Re-enter house id">
                         </div>
                         <div class="form-group">
                             <label for="locality">Locality</label>
-                            <input type="text" class="form-control" name="locality" id="locality" placeholder="" required>
+                            <input type="text" class="form-control" value=" <?php echo $result['Locality'] ?>" name="locality" id="locality" placeholder="" required>
                         </div>  
                         <div class="form-group">
                             <label for="type">House Type</label>
                             <select name="type" id="tyoe" class="" required>
-                                <option selected="" value="Default">(Choose house type)</option>
+                                <!-- <option selected="" value="Default">(Choose house type)</option> -->
                                 <option value="STUDIO">STUDIO</option>
                                 <option value="1BHK">1BHK</option>
                                 <option value="2BHK">2BHK</option>
@@ -84,14 +84,14 @@
                         <div class="form-group">
                             <label for="status">House Status</label>
                             <select name="status" id="status" class="" required>
-                                <option selected="" value="Default">(available or not)</option>
+                                <!-- <option selected="" value="Default">(available or not)</option> -->
                                 <option value="1">Available</option>
                                 <option value="0">Unavailable</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="img">Image url</label>
-                            <input type="text" class="form-control" name="img" id="img" placeholder="" required>
+                            <input type="text" class="form-control" name="img" id="img" value=" <?php echo $result['img'] ?>" placeholder="" required >
                         </div>
                         
                         <div class="form-group">

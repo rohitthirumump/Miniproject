@@ -1,3 +1,10 @@
+<?php 
+    include('config.php');
+    
+
+        
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +21,7 @@
 		<link rel="stylesheet" href="css and js/gallery.css">
 	</head>
 	<body>
-		<?php include ("config.php"); ?>
+		
 		<header>
 			<nav id="header-nav" class="navbar navbar-default">
 				<div class="container">
@@ -27,9 +34,9 @@
 							<li><a href = "owner.php"></li>
 							<li><h3>Gallary</h3></li>
 							<li></a></li>
-							<li><a href = "Contact.html"></li>
-							<li><h3>Contact</h3></li>
-							<li></a></li>
+							<!-- <li><a href = "Contact.html"></li> -->
+							<!-- <li><h3>Contact</h3></li> -->
+							<!-- <li></a></li> -->
 						</div>
 					</div>
 					<div class="info">
@@ -62,7 +69,10 @@
 						<a href="add.html" class="text-white">Add a new house</a>
 					</button>
 				</div>
-				
+                <!-- <div class="col-2"> -->
+                    					
+				<!-- </div> -->
+
 			</div>
 
 			<!-- All houses from db -->
@@ -102,27 +112,50 @@
 												<br>
 												Type: <?php echo $project['Type'];?>
 												<br>
-
-												<!-- Contact Owner: <?php echo $project['Contact'];?> -->
-												<br>
-												<button class="btn btn-danger mt-2">
-														<a href="" class="text-white">Delete</a> 
-                                                </button>
-                                                <button class="btn btn-warning mt-2">
-														<a href="" class="text-white">Update</a> 
-												</button>
-											</p> 
+                                                   
+                                            </p> 
+                                            <form action="delete.php" method="POST">
+                                                    <button class="btn btn-danger" value="<?php echo $project['House_id'] ?>" name="id">Delete</button>
+                                           </form>
+                                            <form action="updateform.php" method="POST">
+                                                <button class="btn btn-warning" value="<?php echo $project['House_id'] ?>" name="id">Update</button>
+                                            </form>
                                         </div>
                                 </div>
                         </div>
 					<?php  } ?>
 
         </div>
-		</div>
+        <!-- <div class="row">
+            <div class="col"></div>
+            <div class="col">
+            <div class="box border bg-light mx-auto my-5 rounded p-5">
+                
+                <form action="delete.php" method="POST"> 
+                    <h3 class="text-center">Delete OR UPDATE</h3>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="" name="id" placeholder="Enter house id to delete/update" value="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="sc">Select Action</label>
+                        <select name="sc" id="sc" class="" required>
+                            <option selected="" value="Default">(owner/customer)</option>
+                            <option value="Update">Update</option>
+                            <option value="Delete">Delete</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
 
+                </form>
+            </div>
+            </div>
+            <div class="col"></div>
+        </div> -->
+		<!-- </div> -->
 
-
-
+       
 
 		<!-- js -->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

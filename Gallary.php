@@ -27,9 +27,9 @@
 							<li><a href = "Gallary.php"></li>
 							<li><h3>Gallary</h3></li>
 							<li></a></li>
-							<li><a href = "Contact.html"></li>
-							<li><h3>Contact</h3></li>
-							<li></a></li>
+							<!-- <li><a href = "Contact.html"></li> -->
+							<!-- <li><h3>Contact</h3></li> -->
+							<!-- <li></a></li> -->
 						</div>
 					</div>
 					<div class="info">
