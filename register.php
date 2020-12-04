@@ -22,17 +22,17 @@
         $lname = $_POST["lname"];
         $email = $_POST["email"];
         $age = $_POST["age"];
-        $num = $_POST["num"];
+        $contact = $_POST["contact"];
         $pswrd = $_POST["password"];
 
         $gender = $_POST["inlineRadioOptions"];
         $ur = $_POST["youare"];
 
-        // echo "$id $fname $lname $email $age $num $pswrd $gender $ur";
+        // echo "$id $fname $lname $email $age $contact $pswrd $gender $ur";
         if($ur == "Owner"){
-            $sql = "INSERT INTO owner values ('$id','$fname', '$lname', '$email', '$num', '$age', '$gender', '$pswrd')";
+            $sql = "INSERT INTO owner values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
         } else if ($ur == "Customer"){
-            $sql = "INSERT INTO customer  values ('$fname', '$lname', '$email', '$num', '$age', '$gender', '$pswrd')";
+            $sql = "INSERT INTO customer  values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
         } else{
             echo "Data not read";
         } 

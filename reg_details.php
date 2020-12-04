@@ -17,11 +17,14 @@
             die("Connection failed: " . mysqli_connect_error());
         } 
 
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $sug = $_POST["message"];
+        $rid = $_POST["rid"];
+        $date = $_POST["date"];
+        $dpay = $_POST["dpay"];
+        $rent = $_POST["rent"];
+        $oid = $_POST["oid"];
+        $hid = $_POST["hid"];
 
-        $sql = "INSERT INTO feedback values ('$name','$email', '$sug')";
+        $sql = "INSERT INTO reg_details values ('$rid','$date', '$dpay', '$rent', '$oid', '$hid')";
 
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully";

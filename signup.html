@@ -12,6 +12,7 @@
 		<!-- custom css -->
         <link rel="stylesheet" href="css and js/home.css">
         <link rel="stylesheet" href="css and js/signup.css">
+        <script src="css and js/validate.js"></script>
 </head>
 <body>
     <header>
@@ -37,13 +38,13 @@
                     <i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
                     <a href="signup.html"><span>Sign Up</span></a>
                 </div>
-                <div class="search">
+                <!-- <div class="search">
                     <input type="text" placeholder="Search Device">
                     <button style="background-color: green;">
                         <i class="fas fa-search" aria-hidden="true"></i>
                         <span>Search</span>
                     </button>
-                </div>
+                </div> -->
             </div>
         </nav>
     </header>
@@ -51,7 +52,7 @@
         <div class="box border bg-light mx-auto my-5 rounded">
             <div class="">
                 <h1 class="text-center mb-4">Sign Up!</h1> 
-                <form action="register.php" method="POST">
+                <form action="register.php" method="POST" >
                     <div class="form-group form-check-inline">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="First Name" name="fname" required>
@@ -63,11 +64,11 @@
                     </div>
                     <div class="form-group">
                         <label for="pid">User ID</label>
-                        <input type="pid" class="form-control" id="pid" placeholder="3 digit user id" name="pid" required>
+                        <input type="number" class="form-control" id="pid" placeholder="3 digit user id" name="pid" min=1 max="999" required>
                     </div>
                     <div class="form-group">
-                        <label for="number">Contact Number</label>
-                        <input type="number" class="form-control" id="number" placeholder="9876543210" name="num" required>
+                        <label for="contact">Contact Number</label>
+                        <input type="number" class="form-control" id="contact" placeholder="" name="contact" required>
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
@@ -99,11 +100,11 @@
                      </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Should be between 5 to 10 characters" required>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Should be between 5 to 10 characters" minlength="5" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         
-                        <button class="form-control btn btn-primary" id="submit" name="Submit">Submit</button> 
+                        <button class="form-control btn btn-primary" id="submit" name="Submit" onclick="validate()">Submit</button> 
                     </div>
                 </form>
             </div>

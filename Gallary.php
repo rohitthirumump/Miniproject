@@ -48,13 +48,13 @@
 						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
 						<a href="signup.html"><span>Sign Up</span></a>
 					</div>
-					<div class="search">
+					<!-- <div class="search">
 						<input type="text" placeholder="Search Device">
 						<button style="background-color: green;">
 							<i class="fas fa-search" aria-hidden="true"></i>
 							<span>Search</span>
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</nav>
 		</header>
@@ -62,34 +62,44 @@
 
 		<div class="container mt-4">
 			<div class="row">
-				<div class="col-9">
+				<div class="col-8">
 					<h1 class="text-white">Select from the varieties Available...</h1>
 				</div>
-				<div class="col-3">
-					<button class="btn btn-primary">
+
+				<!-- if owner logged in then display this button -->
+				
+					<div class="col-2">
+					<button class="btn btn-primary btn-sm login">
 						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
 						<a href="add.html" class="text-white">Add a new house</a>
 					</button>
 				</div>
+				<div class="col-2">
+					<button class="btn btn-primary btn-sm login">
+						<i class="fas fa-plus" aria-hidden="true" style="margin-left: 2vw;"></i>
+						<a href="#" class="text-white">View your houses</a>
+					</button>
+				</div>
+				<!--  -->
 			</div>
 
 			<!-- All houses from db -->
 			<?php
 				$projects = array();
 				// fetch data from the database
+				$records = '';
 				$records = mysqli_query($conn,"select * from house_details") or die("Query fail: " . mysqli_error());
-				
+				$contacts = mysqli_query($conn,"select Contact from owner") or die ("Query fail: ".mysqli_error());
 			?>
 			<div class="row ">
 				<?php 
-					while (  $row =  mysqli_fetch_assoc($records)    )
+					while (  $project =  mysqli_fetch_assoc($records)    )
 					{
-						$projects[] = $row;
-						foreach ($projects as $project):
+						$contact = mysqli_fetch_assoc($contacts)
 				?>
                         <div class="col-lg-4 col-md-6">
                                 <div class="card" >
-										<img src="<?php echo $project['img'];?>" alt="" class="card-img-top">
+										<img src="<?php echo $project['img'];?>" alt="" class="card-img-top image-responsive" >
 										
                                         <div class="card-body text-center">
 											<h3 class="card-title">House id: 
@@ -107,16 +117,20 @@
 												<br>
 												Type: <?php echo $project['Type'];?>
 												<br>
-												Owner: <?php echo $project['Owner_id'];?>
+												Contact Owner: <?php echo $contact['Contact'];?>
 												<br>
 												<button class="btn btn-danger mt-2">
-													<a href="reg_details.html" class="text-white">Book Now!</a> 
-												</button>
+													<?php if($project['status'] == 1) { ?>
+														<a href="reg_details.html" class="text-white">Book Now!</a> 
+													<?php }  else { ?>
+														<a href="#" class="text-white ">Book Now!</a> 
+													<?php } ?>
+													</button>
 											</p> 
                                         </div>
                                 </div>
                         </div>
-					<?php endforeach; } ?>
+					<?php  } ?>
 
         </div>
 		</div>
