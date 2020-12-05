@@ -38,7 +38,8 @@
                 echo " User ID already taken ";
             } else {
             $sql = "INSERT INTO customer  values ('$id','$fname', '$lname', '$email', '$contact', '$age', '$gender', '$pswrd')";
-        } 
+        }
+    } 
 
         if (mysqli_query($conn, $sql)) {
             echo "Registration successfully";

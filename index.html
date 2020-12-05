@@ -12,6 +12,7 @@
     <!-- custom css -->
     <link rel="stylesheet" href="css and js/home.css">
     <link rel="stylesheet" href="css and js/signup.css">
+    <!-- <script src="css and js/validate.js"></script> -->
 </head>
 <body>
     <header>
@@ -58,7 +59,7 @@
                         <form action="login.php" method="POST">
                             <div class="form-group">
                                 <label for="pid">User ID</label>
-                                <input type="number" class="form-control" id="pid" placeholder="3 digit user id" name="pid" required>
+                                <input type="number" class="form-control" id="pid" placeholder="3 digit user id" name="pid" maxlength="3" required>
                             </div>
 
                             <div class="form-group">
@@ -93,8 +94,8 @@
                                 <input type="text" class="form-control" id="name" placeholder="Last Name" name="lname">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+                                <label for="mail">Email address</label>
+                                <input type="email" class="form-control" id="mail" placeholder="name@example.com" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="pid">User ID</label>
@@ -127,7 +128,7 @@
                              <div class="form-group">
                                  <label for="youare">You are a</label>
                                 <select name="youare" id="youare" class="" required>
-                                    <option selected="" value="Default">(owner/customer)</option>
+                                    <!-- <option selected="" value="Default">(owner/customer)</option> -->
                                     <option value="Owner">Owner</option>
                                     <option value="Customer">Customer</option>
                                 </select>
@@ -147,5 +148,42 @@
         </div>
     </div>
     </div>
+    <!-- <script src="css and js/validate.js"></script> -->
+    <script>
+        function validate()
+{
+    var mail = document.getElementById('mail');
+    if(mailValidate(mail)){
+        var ur=document.getElementById('youare');
+        if(youare(ur)){
+            // alert("Successfully submitted");
+        }
+    }
+}
+
+function mailValidate(mail){
+    var proper = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    if (mail.value.match(proper))
+    {
+        return true;
+    }
+    alert("Enter a valid email address");
+    return false; 
+}
+
+// owner/customer
+function youare(ur)
+{
+    if(ur.value=="Default")
+    {
+        alert("Plz select if you are owner/customer");
+    }
+    else
+    {
+        return true;
+    }
+}
+    </script>
+
 </body>
 </html>

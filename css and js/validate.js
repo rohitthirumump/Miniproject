@@ -1,6 +1,6 @@
 function validate()
 {
-    var mail = document.getElementById('exampleFormControlInput1');
+    var mail = document.getElementById('mail');
     if(mailValidate(mail)){
         var ur=document.getElementById('youare');
         if(youare(ur)){
@@ -22,12 +22,12 @@ function mailValidate(mail){
 // owner/customer
 function youare(ur)
 {
-if(ur.value=="Default")
-{
-  alert("Plz select if you are owner/customer");
-}
-else
-{
-  return true;
-}
+    if(ur.value=="Default")
+    {
+        alert("Plz select if you are owner/customer");
+    }
+    else
+    {
+        return true;
+    }
 }
