@@ -16,7 +16,7 @@
         $oid = $_POST["oid"];
         $hid = $_POST["hid"];
 
-        // $cid = $_POST["cid"];
+        $cid = $_SESSION['id'];
         // $password = $_POST["password"];
 
         // $cid_sql = "select * from customer where Password = '$password' and cust_id = '$cid' ";
@@ -25,8 +25,9 @@
         // if(mysqli_num_rows($result) > 0) { 
             $sql = "INSERT INTO reg_details values ('$rid','$date', '$dpay', '$rent', '$oid', '$hid')";
             $sql_u = "UPDATE house_details SET status=0";
+            $sql_search = "INSERT INTO searched values ('$cid','$hid')";
             if(mysqli_query($conn,$sql_u)){
-                if (mysqli_query($conn, $sql)) {
+                if (mysqli_query($conn, $sql) && mysqli_query($conn,$sql_search)) {
                     echo "New record created successfully";
                 }
                 else {
